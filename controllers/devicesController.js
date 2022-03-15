@@ -1,8 +1,11 @@
 import Device from "../models/device.js";
 
-async function getAlldevices(req, res, next) {
+async function getDevices(req, res, next) {
     try {
-        const devices = await Device.find();
+        console.log(req.query);
+
+        const devices = await Device.find(req.query);
+       
         return res.status(200).json(devices);
     } catch (err) {
         next(err);
@@ -43,7 +46,7 @@ async function updateDevice(req, res, next) {
 
         //const savedDevice = device.save();
 
-        return res.status(200).json(device);
+        return res.status(200).json();
 
     }
     catch(err) { 
@@ -65,4 +68,4 @@ async function deleteDevice(req, res, next) {
     }
 }
 
-export default { getAlldevices, createDevice, getDeviceById, updateDevice, deleteDevice };
+export default { getDevices, createDevice, getDeviceById, updateDevice, deleteDevice };
