@@ -4,8 +4,9 @@ import mongooseUniqueValidator from "mongoose-unique-validator";
 const deviceschema = new mongoose.Schema({
     deviceType: String,
     deviceDescription: String,
+    deviceSerialNumber: String,
     deviceOwner: String,
-    deviceEnergyRating: Number,
+    deviceEnergyRating: String,
     deviceInstalled: Date,
     deviceRemoved: Date,
     deviceLocation: String,
